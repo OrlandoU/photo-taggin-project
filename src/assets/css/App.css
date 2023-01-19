@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+a{
+  color: white;
+  text-decoration: none;
+}
+.active{
+  text-decoration: line-through;
+}
+.nav-bar{
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  background-color: #282c34;
+  align-items: center;
+}
+
+.nav-links{
+  display: flex;
+  gap: 10px;
+}
+main{
+  padding: 36px 24px;
+}
