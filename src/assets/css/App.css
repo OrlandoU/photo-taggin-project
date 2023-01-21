@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(26, 26, 26);
+  padding: 10px;
 }
 
 .App-logo {
@@ -14,7 +19,6 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -32,30 +36,76 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
-a{
+
+.nav-link, .app-logo{
   color: white;
   text-decoration: none;
+  font-weight: 600;
+  transition: 300ms;
 }
-.active{
-  text-decoration: line-through;
-}
-.nav-bar{
-  padding: 10px;
-  display: flex;
-  justify-content: space-between;
-  color: white;
-  background-color: #282c34;
-  align-items: center;
+.nav-link:hover{
+  color: rgb(4, 0, 255);
 }
 
-.nav-links{
+
+
+.nav-bar {
+
+  display: flex;
+  padding: 10px 25px;
+  border-radius: 15px;
+  justify-content: space-between;
+  color: white;
+  background-color: rgb(26, 26, 26);
+  align-items: center;
+  z-index: 10;
+  transition: 500ms;
+}
+
+.scrolled {
+  box-shadow: 0px 0px 10px rgba(220, 220, 220, 0.37);
+  background-color: aliceblue;
+  position: sticky;
+  top: 5px;
+}
+.scrolled a{
+    color: rgb(26, 26, 26);
+}
+
+.nav-links {
   display: flex;
   gap: 10px;
 }
-main{
+
+main {
   padding: 36px 24px;
+  width: 100%;
+  flex: 1;
+  animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
+
+@keyframes slide-in-blurred-top {
+  0% {
+    transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+    transform-origin: 50% 0%;
+    filter: blur(40px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0) scaleY(1) scaleX(1);
+    transform-origin: 50% 50%;
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.active {
+  text-decoration: overline;
+  color: rgb(4, 0, 255);
 }
