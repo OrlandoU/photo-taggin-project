@@ -1,4 +1,4 @@
-import { NavLink, Link } from "react-router-dom"
+import { NavLink, Link, useLocation } from "react-router-dom"
 import { useEffect, useRef } from "react"
 
 function Header() {
@@ -21,19 +21,21 @@ function Header() {
         return ()=>window.removeEventListener('scroll', changeColor)
     }, [])
 
+
+
     return (
         <nav className="nav-bar" ref={navRef}>
             <Link to={'/'} className='app-logo'>Photo-Tagging-App</Link>
 
             <ul className="nav-links">
                 <li>
-                    <NavLink className='nav-link' to='/'>Menu</NavLink>
+                    <NavLink onClick={changeColor} className='nav-link' to='/'>Menu</NavLink>
                 </li>
                 <li>
-                    <NavLink className='nav-link' to='/Info'>Info</NavLink>
+                    <NavLink onClick={changeColor} className='nav-link' to='/Info'>Info</NavLink>
                 </li>
                 <li>
-                    <NavLink className='nav-link' to='/leaderboard'>Leaderboard</NavLink>
+                    <NavLink onClick={changeColor} className='nav-link' to='/leaderboard'>Leaderboard</NavLink>
                 </li>
             </ul>
         </nav>

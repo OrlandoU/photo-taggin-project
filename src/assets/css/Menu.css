@@ -1,5 +1,4 @@
-
-.cards-container{
+.cards-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,20 +7,27 @@
     perspective: 1000px;
 }
 
-.menu-card{
+.menu-title {
+    color: white;
+}
+
+.menu-card {
     width: 220px;
     aspect-ratio: 8/15;
     color: white;
     font-weight: 600;
     perspective: 600px;
     position: relative;
+    border-radius: 15px;
 }
-.menu-card-preview{
+
+.menu-card-preview {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.menu-card-front::after{
+
+.menu-card-front::after {
     position: absolute;
     content: '';
     inset: 0;
@@ -30,12 +36,14 @@
 
 .menu-card:hover>.menu-card-back {
     transform: rotateY(360deg);
-    box-shadow: 0px 0px 25px rgb(4, 0, 255);
+    box-shadow: 0px 0px 25px rgba(4, 0, 255, 0.253);
 }
+
 .menu-card:hover>.menu-card-front {
     transform: rotateY(180deg);
 }
-.card-face{
+
+.card-face {
     border-radius: 10px;
     transform-style: preserve-3d;
     backface-visibility: hidden;
@@ -44,8 +52,50 @@
     height: 100%;
     position: absolute;
     transition: 700ms;
+    box-shadow: 0px 0px 20px black;
+    border-top: 2px solid silver;
 }
-.menu-card-back{
-    background-color: rgba(255, 255, 255, 0.801);
+
+.menu-card-back {
+    background-color: rgba(255, 255, 255, 0.904);
     transform: rotateY(180deg);
+    color: black;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-char {
+    width: 100%;
+    padding: 0px 10px;
+    position: relative;
+}
+
+.menu-card-char {
+    inset: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 70px;
+    border-radius: 15px;
+}
+
+.menu-character-name {
+    font-size: .9rem;
+    position: absolute;
+    left: 15px;
+    bottom: 10px;
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.205);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+}
+
+.menu-map-name {
+    border-bottom: 2px solid rgb(59, 59, 59);
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.menu-card-best-time{
+    
 }

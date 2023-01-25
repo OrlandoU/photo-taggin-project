@@ -21,13 +21,15 @@ function HoverMenuItem(props) {
             setFounded(prevState => {
                 if (!prevState) {
                     updateDoc(doc(getFirestore(), `leaderboard-${url.level}`, props.uniqueId.toString()), {
-                        [props.characterName]: timestamp
+                        [props.characterName]: timestamp,
+                        endTimeStamp: timestamp
                     }).then(()=>{
                         props.setItemFounded()
                     }
                     ).catch(() => {
                         setDoc(doc(getFirestore(), `leaderboard-${url.level}`, props.uniqueId.toString()), {
-                            [props.characterName]: timestamp
+                            [props.characterName]: timestamp,
+                            endTimeStamp: timestamp
                         })
                         props.setItemFounded()
                     })

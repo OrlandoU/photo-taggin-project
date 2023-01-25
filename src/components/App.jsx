@@ -6,11 +6,13 @@ import Header from './Header';
 import Info from './Info/Info';
 import Map from './Map/Map';
 import { useState } from 'react';
+import LeaderboardRouted from './LeaderBoard/LeaderboardRouted';
 
 
 
 function App() {  
   const [uniqueId, setUniqueId] = useState()
+  const [keyId, setKeyId] = useState(0)
   
   return (
       <div className="App">
@@ -19,7 +21,8 @@ function App() {
           <Route path='/' element={<Menu />} />
           <Route path='/leaderboard' element={<LeaderBoard />} />
           <Route path='/info' element={<Info />} />
-        <Route path='/map/:level' element={<Map uniqueId={uniqueId} setUniqueId={setUniqueId} key={useLocation()} />}/>
+          <Route path='/map/:level' element={<Map uniqueId={uniqueId} setUniqueId={setUniqueId} key={keyId} setKeyId={setKeyId} />}/>
+          <Route path='/leaderboard/:level' element={<LeaderboardRouted />}/>
         </Routes>
       </div>
     

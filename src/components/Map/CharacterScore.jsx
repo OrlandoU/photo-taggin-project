@@ -1,4 +1,9 @@
-function CharacterScore({charName, charPicUrl}){
+function CharacterScore({charName, charPicUrl, statTime, charTime}){
+
+    const getSeconds = () => {
+        return ((charTime - statTime) / 1000).toFixed(2)
+    }
+
     return (
         <span className="map-char-score">
             <div className="map-image-container">
@@ -6,9 +11,8 @@ function CharacterScore({charName, charPicUrl}){
             </div>
             <div className="flex">
                 <p className="map-score-name">{charName}</p>
-                <p className="map-score-time">47s</p>
+                <p className="map-score-time">{getSeconds()}s</p>
             </div>
-
         </span>
     )
 }

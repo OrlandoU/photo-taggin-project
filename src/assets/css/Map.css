@@ -2,7 +2,6 @@
     width: 100%;
     position: relative;
     border-radius: 15px;
-    overflow: hidden;
 }
 
 .hover-menu {
@@ -53,6 +52,7 @@
 
 .Map {
     width: 100%;
+    border-radius: 15px;
 }
 
 .hover-image {
@@ -125,22 +125,39 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.815);
+    backdrop-filter: blur(8px);
+    z-index: 16;
+    padding: 20px;
 }
 
-.map-bestscore-form {
-    color: white ;
+.map-bestscore-form,
+.map-retry-game {
+    margin: 10px;
+    color: white;
     display: flex;
     background: rgb(34, 193, 195);
     background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgb(153, 0, 255) 100%);
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: clamp(300px, 100vw, 1100px);
+    width: clamp(10px, 100vw, 1100px);
     background-color: white;
     border-radius: 25px;
     font-size: 1.1rem;
     padding: 20px 20px 50px 20px;
+}
+
+.map-retry-game {
+    background: rgb(167, 0, 0);
+    background: linear-gradient(90deg, rgba(167, 0, 0, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    padding: 20px 20px 50px 20px;
+}
+
+.map-retry-game span {
+    max-width: 800px;
 }
 
 /* Medal */
@@ -150,8 +167,21 @@
     height: 200px;
 }
 
+.body-fixed {
+    overflow: hidden;
+    width: 100%;
+}
+
+.map-char-score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
 
 .medal {
+    box-shadow: 0px 0px 20px 2px rgb(0, 225, 255);
     width: 150px;
     height: 150px;
     border-radius: 100%;
@@ -166,7 +196,8 @@
 .icon--star:before {
     font-family: 'Rubik', sans-serif;
     content: attr(data-place);
-    font-size: 1vw;
+    font-size: 60px;
+    text-shadow: 2px 6px 10px rgb(153, 0, 255);
     color: whitesmoke;
     position: absolute;
     top: 50%;
@@ -175,7 +206,7 @@
 
 }
 
-.map-user{
+.map-user {
     margin-top: 65px;
     background-color: transparent;
     border: none;
@@ -185,17 +216,22 @@
     padding: 5px 10px;
     font-size: 1.3rem;
     color: white;
+    text-align: center;
     font-weight: 400;
 }
-.map-user::placeholder{
+
+.map-user::placeholder {
     color: rgb(68, 233, 255);
 }
-.map-buttons{
+
+.map-buttons {
     margin-top: 25px;
     display: flex;
     gap: 20px;
 }
-.map-button{
+
+.map-button,
+.map-button-retry {
     padding: 10px 35px;
     border-radius: 25px;
     border: none;
@@ -206,18 +242,30 @@
     background-color: transparent;
     border: 2px solid white;
 }
-.map-button:hover{
+
+.map-button-retry:hover {
+    box-shadow: 0px 0px 10px 2px rgb(255, 0, 0);
+    transform: translateY(-2.5px);
+}
+
+.map-button:hover {
     box-shadow: 0px 0px 10px 2px rgb(0, 183, 255);
     transform: translateY(-2.5px);
 }
 
-.button-save-score:hover{
+.button-save-score:hover {
     background-color: #00c3ff;
-        color: rgb(255, 255, 255);
-        text-shadow: 0px 0px 10px rgb(71, 71, 71);
-        border: 2px solid transparent;
+    color: rgb(255, 255, 255);
+    text-shadow: 0px 0px 10px rgb(71, 71, 71);
+    border: 2px solid transparent;
 }
-.button-retry:hover{
+
+.button-retry-retry:hover {
+    background-color: white;
+    color: #a30000;
+}
+
+.button-retry:hover {
     background-color: white;
     color: #007da3;
 }
@@ -228,6 +276,7 @@
     color: rgb(0, 225, 255);
     position: absolute;
     animation: twinkle 2s alternate ease-in infinite 2s;
+    text-shadow: 0px 0px 2px rgb(0, 225, 255);
 }
 
 .icon--twinkle.star-a:before {
@@ -298,14 +347,17 @@
         transform: scale(1);
     }
 }
-.map-score-characters{
+
+.map-score-characters {
     margin-top: 20px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 50px;
     width: 100%;
 }
-.map-image-container{
+
+.map-image-container {
     display: flex;
     width: fit-content;
     height: fit-content;
@@ -316,45 +368,184 @@
     border-radius: 50%;
     transition: 400ms;
 }
-.map-score-name{
+
+.map-score-name {
     margin: 0;
     font-size: .9rem;
 }
+
 .map-score-time {
     margin: 0;
     font-size: 1rem;
     font-weight: 900;
     font-style: italic;
 }
-.map-score-char-img{
+
+.map-score-char-img {
     height: 80px;
     width: 80px;
     border-radius: 50%;
     object-fit: cover;
 }
-.flex{
+
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     gap: 8px;
 }
-.map-char-score:hover > .map-image-container{
+
+.map-char-score:hover>.map-image-container {
     transform: scale(1.02) translateY(-2px);
 }
-.map-total-score{
+
+.map-total-score,
+.map-total-score-retry {
     margin-top: 20px;
     background-color: white;
     color: transparent;
     padding: 15px;
     border-radius: 5px;
 }
-.map-total-score > span{
-        background: linear-gradient(90deg, rgba(34, 193, 195, 1) 0%, rgb(153, 0, 255) 100%);
-        background-clip: text;
-        font-weight: bolder;
+
+.map-total-score>span {
+    background: linear-gradient(90deg, rgba(34, 192, 195, 0.527) 0%, rgb(153, 0, 255) 100%);
+    background-clip: text;
+    font-weight: bolder;
 }
-.map-sec-span{
+
+.map-total-score-retry>span {
+    background: linear-gradient(90deg, rgb(185, 9, 9) 0%, rgb(0, 0, 0) 100%);
+    background-clip: text;
+    font-weight: bolder;
+}
+
+.map-sec-span {
     font-weight: 900;
     font-style: italic;
+}
+
+.map-timer {
+    box-shadow: 0px 0px 10px 1px rgba(255, 255, 255, 0.24);
+    background-color: white;
+    position: fixed;
+    bottom: 10px;
+    z-index: 10;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.map-sub-timer {
+    z-index: 10;
+    width: 100px;
+
+}
+
+.clock-svg {
+    width: 30px;
+    color: white;
+    z-index: 10;
+}
+
+.map-info-container {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px rgba(220, 220, 220, 0.37);
+    padding: 10px;
+    align-self: center;
+    font-weight: 900;
+    font-size: 1.1rem;
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+}
+
+.main-menu-button {
+    text-decoration: none;
+}
+
+.main-menu-button:hover {
+    background-color: white;
+    color: #007da3;
+}
+
+.main-menu-button-retry:hover {
+    background-color: rgb(199, 0, 0);
+    border: 2px solid rgb(199, 0, 0);
+    box-shadow: 0px 0px 10px 1px rgb(255, 0, 0);
+}
+
+
+.floating-chars {
+    height: 0px;
+    overflow: hidden;
+    display: flex;
+    z-index: 10;
+    padding: 0px;
+    gap: 10px;
+    border: 2px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 2px rgba(255, 255, 255, 0.226);
+    animation: gradientRotate 1s infinite linear;
+    background-color: white;
+    transition: 400ms;
+}
+
+.map-info-container:hover .floating-chars {
+    height: 85px;
+    padding: 5px;
+}
+
+
+.float-img-container {
+    width: 75px;
+    height: 75px;
+    padding: 5px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.float-img-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(0, 255, 231);
+    background: linear-gradient(90deg, rgba(0, 255, 231, 1) 0%, rgba(85, 0, 255, 1) 79%);
+    animation: rotateGrad 1.5s linear infinite;
+}
+.float-img-container:nth-child(2):after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(0, 255, 231);
+    background: linear-gradient(90deg, rgba(0, 255, 231, 1) 0%, rgba(85, 0, 255, 1) 79%);
+    animation: rotateGrad 1.5s 750ms linear infinite;
+}
+
+@keyframes rotateGrad {
+    to {
+        transform: rotateZ(0deg);
+    }
+
+    from {
+        transform: rotateZ(360deg);
+    }
+}
+
+.map-floating-char {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    position: relative;
+    object-fit: cover;
+    border-radius: 50%;
 }

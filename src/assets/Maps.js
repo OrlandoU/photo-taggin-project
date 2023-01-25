@@ -18,6 +18,7 @@ const Maps = [
                 positionX: 0.4530035335689046, positionY: 0.3577277379733879
             },
         ],
+        mapName: 'Robot City',
         mapImg: map1,
     },
     {
@@ -35,13 +36,13 @@ const Maps = [
                 positionX: 0.6282685512367491, positionY: 0.30416345412490364
             },
         ],
-
+        mapName: 'Chaos City',
         mapImg: map2,
     },
     {
         characters: [
             {
-                characterName: 'Donatello', characterImg: 'https://cdnb.artstation.com/p/assets/images/images/030/192/485/large/duh-dude-donnie-colored2.jpg?1599864526',
+                characterName: 'Donatello', characterImg: 'https://nick-intl.mtvnimages.com/uri/mgid:file:docroot:nick.com:/nick-assets/shows/images/ninja-turtles/flipbooks/donatello/pictures/donny-image1.jpg?quality=0.75&height=480&width=null&matte=true&crop=false',
                 positionX: 0.403584229390681, positionY: 0.5208121827411167
             },
             {
@@ -53,6 +54,7 @@ const Maps = [
                 positionX: 0.6838709677419355, positionY: 0.6934010152284263
             },
         ],
+        mapName: 'Space Battle',
         mapImg: map3,
     },
 ]
