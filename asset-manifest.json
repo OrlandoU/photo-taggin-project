@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/photo-tagging-project/static/css/main.1375597b.css",
+    "main.js": "/photo-tagging-project/static/js/main.02c0be6b.js",
+    "static/media/map2.jpg": "/photo-tagging-project/static/media/map2.0548b888f76dc9cb954b.jpg",
+    "static/media/map1.jpg": "/photo-tagging-project/static/media/map1.8ad8cd812dae8d55031c.jpg",
+    "static/media/map3.jpg": "/photo-tagging-project/static/media/map3.083db5329ddf6608d07e.jpg",
+    "index.html": "/photo-tagging-project/index.html",
+    "main.1375597b.css.map": "/photo-tagging-project/static/css/main.1375597b.css.map",
+    "main.02c0be6b.js.map": "/photo-tagging-project/static/js/main.02c0be6b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1375597b.css",
+    "static/js/main.02c0be6b.js"
+  ]
+}
